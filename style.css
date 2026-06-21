@@ -348,19 +348,50 @@ a {
 /* ─── Case study body layout ─── */
 
 .case-body {
-  display: grid;
-  grid-template-columns: 160px minmax(0, 700px);
-  gap: 48px;
-  max-width: 960px;
+  max-width: 700px;
   margin: 0 auto;
   padding: 0 24px 80px;
 }
 
 .case-sidebar {
-  position: sticky;
-  top: 24px;
-  height: fit-content;
-  align-self: start;
+  position: fixed;
+  top: 80px;
+  left: 24px;
+  width: 160px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
+.sidebar-burger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--text);
+  opacity: 0.4;
+  transition: opacity 0.15s;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.sidebar-burger:hover {
+  opacity: 1;
+}
+
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 99;
+}
+
+.sidebar-overlay.visible {
+  display: block;
 }
 
 .sidebar-nav {
@@ -590,27 +621,35 @@ a {
 
 /* ─── Responsive ─── */
 
-@media (max-width: 860px) {
-  .case-body {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
+@media (max-width: 1080px) {
   .case-sidebar {
-    position: static;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100vh;
+    max-height: none;
+    background: var(--bg);
+    z-index: 100;
+    padding: 80px 24px 32px;
+    transform: translateX(-100%);
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    border-right: 1px solid var(--border);
   }
 
-  .sidebar-nav {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 8px;
+  .case-sidebar.open {
+    transform: translateX(0);
+    box-shadow: 4px 0 40px rgba(0, 0, 0, 0.15);
+  }
+
+  .sidebar-burger {
+    display: flex;
   }
 
   .sidebar-link {
-    padding: 4px 10px;
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    font-size: 13px;
+    font-size: 15px;
+    padding: 6px 0;
   }
 }
 
@@ -629,5 +668,14 @@ a {
   .footer-contacts {
     flex-direction: column;
     gap: 8px;
+  }
+
+  .version-toggle {
+    width: 100%;
+  }
+
+  .toggle-btn {
+    flex: 1;
+    text-align: center;
   }
 }

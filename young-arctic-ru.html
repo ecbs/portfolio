@@ -219,6 +219,24 @@
   </footer>
 
   <script>
+    (function () {
+      var sidebar = document.querySelector('.case-sidebar');
+      if (!sidebar) return;
+      var overlay = document.createElement('div');
+      overlay.className = 'sidebar-overlay';
+      document.body.appendChild(overlay);
+      var burger = document.createElement('button');
+      burger.className = 'sidebar-burger';
+      burger.setAttribute('aria-label', 'Открыть навигацию');
+      burger.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+      var navActions = document.querySelector('.nav-actions');
+      if (navActions) navActions.insertBefore(burger, navActions.firstChild);
+      function openSidebar() { sidebar.classList.add('open'); overlay.classList.add('visible'); document.body.style.overflow = 'hidden'; }
+      function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('visible'); document.body.style.overflow = ''; }
+      burger.addEventListener('click', openSidebar);
+      overlay.addEventListener('click', closeSidebar);
+      document.querySelectorAll('.sidebar-link').forEach(function (l) { l.addEventListener('click', closeSidebar); });
+    })();
     const links = document.querySelectorAll('.sidebar-link');
     const sections = document.querySelectorAll('.case-content section');
     const observer = new IntersectionObserver(entries => {
