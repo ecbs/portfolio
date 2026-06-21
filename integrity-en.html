@@ -35,6 +35,7 @@
     #password-gate .return-link { margin-top: 32px; font-size: 14px; color: var(--muted); }
     #password-gate .return-link a { color: var(--text); }
   </style>
+  <script>!function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}()</script>
 </head>
 <body>
   <div id="password-gate">
@@ -77,7 +78,10 @@
       <nav class="site-nav">
         <div class="nav-inner">
           <a href="index.html" class="nav-logo">Daniil Kurguzov</a>
-          <a href="integrity-ru.html" class="nav-lang">RU</a>
+          <div class="nav-actions">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+            <a href="integrity-ru.html" class="nav-lang">RU</a>
+          </div>
         </div>
       </nav>
     </div>
@@ -92,9 +96,32 @@
       <div class="case-meta-item"><strong>Platforms:</strong> Desktop</div>
     </div>
     <a href="#" class="case-demo-link">Final demo video</a>
+    <div class="version-toggle">
+      <button class="toggle-btn active" data-version="short">Short</button>
+      <button class="toggle-btn" data-version="long">Full</button>
+    </div>
   </div>
 
-  <div class="case-body">
+  <div class="short-content" id="short-content">
+    <p>Build an all-in-one knowledge tool combining documents, canvas and a network of connections — the thinking space that professionals were missing.</p>
+    <h3>Key decisions</h3>
+    <ul>
+      <li>Switcher: seamless toggle between document and canvas (pagevas) in a single workspace</li>
+      <li>Advanced documents: same content viewed as page, kanban, table or mind map</li>
+      <li>Navigation system: file structure, tags, collections, folders and bookmarks — adapts to any thinking style</li>
+    </ul>
+    <h3>Result</h3>
+    <p>The demo video secured $500,000 in initial investment. I was offered a permanent Senior Product Designer role.</p>
+    <div class="other-projects">
+      <h3>Other Projects</h3>
+      <ul class="other-projects-list">
+        <li><a href="young-arctic-en.html">"Young Arctic"</a></li>
+        <li><a href="qubeek-en.html">Qubeek.io Internal Products</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="case-body" id="long-content" style="display:none">
     <aside class="case-sidebar">
       <nav class="sidebar-nav">
         <a href="#goal" class="sidebar-link">Goal</a>
@@ -271,6 +298,25 @@
     }, { rootMargin: '-20% 0px -70% 0px' });
     sections.forEach(s => observer.observe(s));
   </script>
+  <script>
+    const toggleBtns = document.querySelectorAll('.toggle-btn');
+    const shortContent = document.getElementById('short-content');
+    const longContent = document.getElementById('long-content');
+    toggleBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        toggleBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        if (btn.dataset.version === 'short') {
+          shortContent.style.display = '';
+          longContent.style.display = 'none';
+        } else {
+          shortContent.style.display = 'none';
+          longContent.style.display = '';
+        }
+      });
+    });
+  </script>
 
+  <script src="theme.js"></script>
 </body>
 </html>

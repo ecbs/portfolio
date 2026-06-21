@@ -35,6 +35,7 @@
     #password-gate .return-link { margin-top: 32px; font-size: 14px; color: var(--muted); }
     #password-gate .return-link a { color: var(--text); }
   </style>
+  <script>!function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}()</script>
 </head>
 <body>
   <div id="password-gate">
@@ -77,7 +78,10 @@
       <nav class="site-nav">
         <div class="nav-inner">
           <a href="home-ru.html" class="nav-logo">Даниил Кургузов</a>
-          <a href="integrity-en.html" class="nav-lang">EN</a>
+          <div class="nav-actions">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+            <a href="integrity-en.html" class="nav-lang">EN</a>
+          </div>
         </div>
       </nav>
     </div>
@@ -313,5 +317,6 @@
     });
   </script>
 
+  <script src="theme.js"></script>
 </body>
 </html>

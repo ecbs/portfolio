@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script>!function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}()</script>
 </head>
 <body>
 
@@ -16,7 +17,10 @@
       <nav class="site-nav">
         <div class="nav-inner">
           <a href="index.html" class="nav-logo">Daniil Kurguzov</a>
-          <a href="young-arctic-ru.html" class="nav-lang">RU</a>
+          <div class="nav-actions">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+            <a href="young-arctic-ru.html" class="nav-lang">RU</a>
+          </div>
         </div>
       </nav>
     </div>
@@ -248,5 +252,6 @@
     });
   </script>
 
+  <script src="theme.js"></script>
 </body>
 </html>

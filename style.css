@@ -495,6 +495,82 @@ a {
   gap: 12px;
 }
 
+/* ─── Theme toggle button ─── */
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.theme-toggle {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.4;
+  transition: opacity 0.15s;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  opacity: 1;
+}
+
+/* ─── Dark theme ─── */
+
+[data-theme="dark"] {
+  --bg: #141414;
+  --text: #f0efed;
+  --muted: #555;
+  --link: #3aadff;
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .version-toggle {
+  background: #2a2a2a;
+}
+
+[data-theme="dark"] .toggle-btn {
+  color: #555;
+}
+
+[data-theme="dark"] .toggle-btn.active {
+  background: #3a3a3a;
+  color: var(--text);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .img-placeholder {
+  background: #1e1e1e;
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] #password-gate {
+  background: #141414;
+}
+
+[data-theme="dark"] #password-gate input {
+  background: #1e1e1e;
+  border-color: rgba(255, 255, 255, 0.12);
+  color: var(--text);
+}
+
+[data-theme="dark"] #password-gate button {
+  background: #f0efed;
+  color: #141414;
+}
+
+[data-theme="dark"] #password-gate button:hover {
+  background: #ccc;
+}
+
 /* ─── Responsive ─── */
 
 @media (max-width: 860px) {
