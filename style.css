@@ -185,6 +185,7 @@ a {
 /* ─── Version toggle ─── */
 
 .version-toggle {
+  position: relative;
   display: flex;
   gap: 0;
   background: #ebebeb;
@@ -194,7 +195,22 @@ a {
   margin-top: 32px;
 }
 
+.toggle-pill {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 0;
+  background: #fff;
+  border-radius: 100px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+  transition: transform 0.24s cubic-bezier(0.4, 0, 0.2, 1), width 0.24s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  will-change: transform;
+}
+
 .toggle-btn {
+  position: relative;
+  z-index: 1;
   padding: 7px 22px;
   border: none;
   border-radius: 100px;
@@ -204,14 +220,12 @@ a {
   cursor: pointer;
   background: transparent;
   color: #888;
-  transition: all 0.18s ease;
+  transition: color 0.18s ease;
   white-space: nowrap;
 }
 
 .toggle-btn.active {
-  background: #fff;
   color: var(--text);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
 }
 
 /* ─── Short content ─── */
@@ -542,8 +556,11 @@ a {
 }
 
 [data-theme="dark"] .toggle-btn.active {
-  background: #3a3a3a;
   color: var(--text);
+}
+
+[data-theme="dark"] .toggle-pill {
+  background: #3a3a3a;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 

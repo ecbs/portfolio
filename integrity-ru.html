@@ -299,22 +299,36 @@
   </script>
 
   <script>
-    const toggleBtns = document.querySelectorAll('.toggle-btn');
-    const shortContent = document.getElementById('short-content');
-    const longContent = document.getElementById('long-content');
-    toggleBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        toggleBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        if (btn.dataset.version === 'short') {
-          shortContent.style.display = '';
-          longContent.style.display = 'none';
-        } else {
-          shortContent.style.display = 'none';
-          longContent.style.display = '';
-        }
+    (function () {
+      var toggle = document.querySelector('.version-toggle');
+      var pill = document.createElement('span');
+      pill.className = 'toggle-pill';
+      toggle.insertBefore(pill, toggle.firstChild);
+      var btns = toggle.querySelectorAll('.toggle-btn');
+      var shortContent = document.getElementById('short-content');
+      var longContent = document.getElementById('long-content');
+      function movePill(btn) {
+        pill.style.width = btn.offsetWidth + 'px';
+        pill.style.transform = 'translateX(' + btn.offsetLeft + 'px)';
+      }
+      pill.style.transition = 'none';
+      movePill(toggle.querySelector('.toggle-btn.active'));
+      requestAnimationFrame(function () { pill.style.transition = ''; });
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          movePill(btn);
+          if (btn.dataset.version === 'short') {
+            shortContent.style.display = '';
+            longContent.style.display = 'none';
+          } else {
+            shortContent.style.display = 'none';
+            longContent.style.display = '';
+          }
+        });
       });
-    });
+    })();
   </script>
 
   <script src="theme.js"></script>
