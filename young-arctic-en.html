@@ -31,9 +31,32 @@
       <div class="case-meta-item"><strong>Platforms:</strong> Web, Mobile</div>
     </div>
     <figure class="img-placeholder" style="margin-top: 24px;">Registration screen</figure>
+    <div class="version-toggle">
+      <button class="toggle-btn active" data-version="short">Short</button>
+      <button class="toggle-btn" data-version="long">Full</button>
+    </div>
   </div>
 
-  <div class="case-body">
+  <div class="short-content" id="short-content">
+    <p>Design a unified web portal and mobile app for the Murmansk region to engage young people in social, cultural and economic life — and give them real tools to access opportunities and communicate with authorities.</p>
+    <h3>Key decisions</h3>
+    <ul>
+      <li>End-to-end design system and UI Kit covering both web and mobile with all states, transitions and responsive behavior</li>
+      <li>Gamification loop: points earned through tasks, surveys and volunteering, redeemable in a built-in store — keeps users returning</li>
+      <li>Built-in A/B testing via surveys: users vote between interface variants and earn points, generating real data without external analytics</li>
+    </ul>
+    <h3>Result</h3>
+    <p>Six months after launch: ~14% of the region's population under 35 registered. Murmansk Region ranked 3rd nationally for youth policy implementation among regions under 1 million people.</p>
+    <div class="other-projects">
+      <h3>Other Projects</h3>
+      <ul class="other-projects-list">
+        <li><a href="integrity-en.html">Integrity</a></li>
+        <li><a href="qubeek-en.html">Qubeek.io Internal Products</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="case-body" id="long-content" style="display:none">
     <aside class="case-sidebar">
       <nav class="sidebar-nav">
         <a href="#goal" class="sidebar-link">Goal</a>
@@ -204,6 +227,25 @@
       });
     }, { rootMargin: '-20% 0px -70% 0px' });
     sections.forEach(s => observer.observe(s));
+  </script>
+
+  <script>
+    const toggleBtns = document.querySelectorAll('.toggle-btn');
+    const shortContent = document.getElementById('short-content');
+    const longContent = document.getElementById('long-content');
+    toggleBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        toggleBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        if (btn.dataset.version === 'short') {
+          shortContent.style.display = '';
+          longContent.style.display = 'none';
+        } else {
+          shortContent.style.display = 'none';
+          longContent.style.display = '';
+        }
+      });
+    });
   </script>
 
 </body>

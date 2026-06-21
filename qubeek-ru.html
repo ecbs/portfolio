@@ -30,9 +30,32 @@
       <div class="case-meta-item"><strong>Моя роль:</strong> UX/UI-дизайнер (Junior)</div>
       <div class="case-meta-item"><strong>Платформы:</strong> Веб</div>
     </div>
+    <div class="version-toggle">
+      <button class="toggle-btn active" data-version="short">Кратко</button>
+      <button class="toggle-btn" data-version="long">Полная</button>
+    </div>
   </div>
 
-  <div class="case-body">
+  <div class="short-content" id="short-content">
+    <p>Редизайн внутренних B2B-инструментов Qubeek.io — платформенного провайдера для образовательных учреждений — и создание одного сервиса с нуля, с последующим внедрением в реальные университеты.</p>
+    <h3>Ключевые решения</h3>
+    <ul>
+      <li>Образовательная среда: гибкий конструктор программ с модулем тестирования, кабинетом эксперта и панелью администратора — адаптирован под большие курсы</li>
+      <li>Встраиваемые чаты: полноценный чат-модуль, спроектированный от логики до визуала — сообщения, вложения, статусы, поиск по команде</li>
+      <li>Редактор текста: блочный редактор с drag-and-drop, все состояния блоков проработаны, настройки типографики и отступов в одном сайдбаре</li>
+    </ul>
+    <h3>Результат</h3>
+    <p>Обновлены 3 полноценных продукта, спроектированы и внедрены новые инструменты. Решения успешно интегрированы в реальные образовательные платформы и университеты.</p>
+    <div class="other-projects">
+      <h3>Другие проекты</h3>
+      <ul class="other-projects-list">
+        <li><a href="integrity-ru.html">Integrity</a></li>
+        <li><a href="young-arctic-ru.html">«Молодая Арктика»</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="case-body" id="long-content" style="display:none">
     <aside class="case-sidebar">
       <nav class="sidebar-nav">
         <a href="#about" class="sidebar-link">О компании</a>
@@ -180,6 +203,25 @@
       });
     }, { rootMargin: '-20% 0px -70% 0px' });
     sections.forEach(s => observer.observe(s));
+  </script>
+
+  <script>
+    const toggleBtns = document.querySelectorAll('.toggle-btn');
+    const shortContent = document.getElementById('short-content');
+    const longContent = document.getElementById('long-content');
+    toggleBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        toggleBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        if (btn.dataset.version === 'short') {
+          shortContent.style.display = '';
+          longContent.style.display = 'none';
+        } else {
+          shortContent.style.display = 'none';
+          longContent.style.display = '';
+        }
+      });
+    });
   </script>
 
 </body>

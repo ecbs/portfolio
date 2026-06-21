@@ -31,9 +31,32 @@
       <div class="case-meta-item"><strong>Платформы:</strong> Веб, Мобильный телефон</div>
     </div>
     <figure class="img-placeholder" style="margin-top: 24px;">Экран регистрации</figure>
+    <div class="version-toggle">
+      <button class="toggle-btn active" data-version="short">Кратко</button>
+      <button class="toggle-btn" data-version="long">Полная</button>
+    </div>
   </div>
 
-  <div class="case-body">
+  <div class="short-content" id="short-content">
+    <p>Создать единый веб-портал и мобильное приложение для Мурманской области, чтобы вовлечь молодёжь в социальную, культурную и экономическую жизнь региона — и дать реальные инструменты для доступа к возможностям и общения с властями.</p>
+    <h3>Ключевые решения</h3>
+    <ul>
+      <li>Сквозная дизайн-система и UI Kit: охватывает веб и мобайл, все состояния, переходы и адаптивность</li>
+      <li>Петля геймификации: баллы за задания, опросы и волонтёрство — обмениваются в магазине, возвращают пользователей на платформу</li>
+      <li>Встроенное A/B-тестирование через опросы: пользователи голосуют за варианты интерфейса и получают баллы — реальные данные без внешней аналитики</li>
+    </ul>
+    <h3>Результат</h3>
+    <p>Через полгода после запуска: ~14% молодёжи региона до 35 лет зарегистрировались. Мурманская область заняла 3-е место в стране по реализации молодёжной политики среди регионов с населением до 1 млн.</p>
+    <div class="other-projects">
+      <h3>Другие проекты</h3>
+      <ul class="other-projects-list">
+        <li><a href="integrity-ru.html">Integrity</a></li>
+        <li><a href="qubeek-ru.html">Внутренние продукты Qubeek.io</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="case-body" id="long-content" style="display:none">
     <aside class="case-sidebar">
       <nav class="sidebar-nav">
         <a href="#goal" class="sidebar-link">Цель проекта</a>
@@ -204,6 +227,25 @@
       });
     }, { rootMargin: '-20% 0px -70% 0px' });
     sections.forEach(s => observer.observe(s));
+  </script>
+
+  <script>
+    const toggleBtns = document.querySelectorAll('.toggle-btn');
+    const shortContent = document.getElementById('short-content');
+    const longContent = document.getElementById('long-content');
+    toggleBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        toggleBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        if (btn.dataset.version === 'short') {
+          shortContent.style.display = '';
+          longContent.style.display = 'none';
+        } else {
+          shortContent.style.display = 'none';
+          longContent.style.display = '';
+        }
+      });
+    });
   </script>
 
 </body>

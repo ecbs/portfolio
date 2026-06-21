@@ -30,9 +30,32 @@
       <div class="case-meta-item"><strong>My Role:</strong> Junior UX/UI Designer</div>
       <div class="case-meta-item"><strong>Platforms:</strong> Web</div>
     </div>
+    <div class="version-toggle">
+      <button class="toggle-btn active" data-version="short">Short</button>
+      <button class="toggle-btn" data-version="long">Full</button>
+    </div>
   </div>
 
-  <div class="case-body">
+  <div class="short-content" id="short-content">
+    <p>Redesign internal B2B tools at Qubeek.io — a platform provider for educational institutions — and design one full service from scratch, all shipped into real university deployments.</p>
+    <h3>Key decisions</h3>
+    <ul>
+      <li>Educational environment: flexible program builder with a testing module, expert review dashboard and an admin overview — all adapted for large course volumes</li>
+      <li>Embedded chats: full-featured chat module designed from logic to visuals, supporting messages, attachments, statuses and team search</li>
+      <li>Text editor: block-based editor with drag-and-drop, all block states designed, typography and spacing controls in one sidebar</li>
+    </ul>
+    <h3>Result</h3>
+    <p>3 full products updated, new tools designed and shipped. Solutions successfully integrated into real educational platforms and universities.</p>
+    <div class="other-projects">
+      <h3>Other Projects</h3>
+      <ul class="other-projects-list">
+        <li><a href="integrity-en.html">Integrity</a></li>
+        <li><a href="young-arctic-en.html">"Young Arctic"</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="case-body" id="long-content" style="display:none">
     <aside class="case-sidebar">
       <nav class="sidebar-nav">
         <a href="#about" class="sidebar-link">About</a>
@@ -179,6 +202,25 @@
       });
     }, { rootMargin: '-20% 0px -70% 0px' });
     sections.forEach(s => observer.observe(s));
+  </script>
+
+  <script>
+    const toggleBtns = document.querySelectorAll('.toggle-btn');
+    const shortContent = document.getElementById('short-content');
+    const longContent = document.getElementById('long-content');
+    toggleBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        toggleBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        if (btn.dataset.version === 'short') {
+          shortContent.style.display = '';
+          longContent.style.display = 'none';
+        } else {
+          shortContent.style.display = 'none';
+          longContent.style.display = '';
+        }
+      });
+    });
   </script>
 
 </body>

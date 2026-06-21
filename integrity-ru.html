@@ -92,9 +92,32 @@
       <div class="case-meta-item"><strong>Платформы:</strong> Компьютер</div>
     </div>
     <a href="#" class="case-demo-link">Финальное демо-видео</a>
+    <div class="version-toggle">
+      <button class="toggle-btn active" data-version="short">Кратко</button>
+      <button class="toggle-btn" data-version="long">Полная</button>
+    </div>
   </div>
 
-  <div class="case-body">
+  <div class="short-content" id="short-content">
+    <p>Создать универсальный инструмент для работы с информацией, объединяющий документ, канвас и сеть связей — мыслительное пространство, которого не хватало специалистам.</p>
+    <h3>Ключевые решения</h3>
+    <ul>
+      <li>Switcher: бесшовный переход между документом и канвасом (pagevas) в едином рабочем пространстве</li>
+      <li>Продвинутые документы: один и тот же контент как страница, канбан, таблица или майндмэп</li>
+      <li>Система навигации: файловая структура, теги, коллекции, папки и закладки — адаптируется под любой стиль мышления</li>
+    </ul>
+    <h3>Результат</h3>
+    <p>Демо-видео помогло привлечь первые $500 000 инвестиций. Мне предложили постоянную роль Senior Product Designer.</p>
+    <div class="other-projects">
+      <h3>Другие проекты</h3>
+      <ul class="other-projects-list">
+        <li><a href="young-arctic-ru.html">«Молодая Арктика»</a></li>
+        <li><a href="qubeek-ru.html">Внутренние продукты Qubeek.io</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="case-body" id="long-content" style="display:none">
     <aside class="case-sidebar">
       <nav class="sidebar-nav">
         <a href="#goal" class="sidebar-link">Цель проекта</a>
@@ -269,6 +292,25 @@
       });
     }, { rootMargin: '-20% 0px -70% 0px' });
     sections.forEach(s => observer.observe(s));
+  </script>
+
+  <script>
+    const toggleBtns = document.querySelectorAll('.toggle-btn');
+    const shortContent = document.getElementById('short-content');
+    const longContent = document.getElementById('long-content');
+    toggleBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        toggleBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        if (btn.dataset.version === 'short') {
+          shortContent.style.display = '';
+          longContent.style.display = 'none';
+        } else {
+          shortContent.style.display = 'none';
+          longContent.style.display = '';
+        }
+      });
+    });
   </script>
 
 </body>
