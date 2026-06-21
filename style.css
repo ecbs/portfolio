@@ -186,31 +186,32 @@ a {
 
 .version-toggle {
   display: flex;
-  gap: 4px;
-  background: #f0f0f0;
-  border-radius: 8px;
-  padding: 4px;
+  gap: 0;
+  background: #ebebeb;
+  border-radius: 100px;
+  padding: 3px;
   width: fit-content;
   margin-top: 32px;
 }
 
 .toggle-btn {
-  padding: 6px 18px;
+  padding: 7px 22px;
   border: none;
-  border-radius: 6px;
+  border-radius: 100px;
   font-family: var(--font);
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
   background: transparent;
-  color: var(--muted);
-  transition: all 0.2s;
+  color: #888;
+  transition: all 0.18s ease;
+  white-space: nowrap;
 }
 
 .toggle-btn.active {
   background: #fff;
   color: var(--text);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
 }
 
 /* ─── Short content ─── */
