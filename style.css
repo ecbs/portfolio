@@ -505,6 +505,12 @@ a {
   height: auto;
   border-radius: 8px;
   display: block;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.case-img img.loaded {
+  opacity: 1;
 }
 
 /* Image placeholders */
