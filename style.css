@@ -490,6 +490,18 @@ a {
   line-height: 1.4;
 }
 
+/* Case study images */
+
+.case-img {
+  margin: 24px 0;
+}
+
+.case-img img {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+}
+
 /* Image placeholders */
 
 .img-placeholder {
