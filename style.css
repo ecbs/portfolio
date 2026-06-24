@@ -345,6 +345,14 @@ a {
   color: var(--link);
 }
 
+.case-video {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 8px;
+  display: block;
+  margin: 24px 0;
+}
+
 /* ─── Case study body layout ─── */
 
 .case-body {
