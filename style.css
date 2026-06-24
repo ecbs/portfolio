@@ -564,7 +564,7 @@ a {
 .case-footer {
   border-top: 1px solid var(--border);
   padding: 32px 24px;
-  max-width: 960px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
