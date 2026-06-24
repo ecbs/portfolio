@@ -507,7 +507,8 @@ a {
   overflow: hidden;
 }
 
-.case-img img {
+.case-img img,
+.case-img video {
   width: 100%;
   max-width: 100%;
   height: auto;
@@ -515,6 +516,10 @@ a {
   display: block;
   opacity: 0;
   transition: opacity 0.4s ease;
+}
+
+.case-img video {
+  opacity: 1;
 }
 
 .case-img img.loaded {
