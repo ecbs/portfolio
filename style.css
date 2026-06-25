@@ -672,13 +672,14 @@ a {
     position: fixed;
     top: 0;
     right: 0;
-    width: 260px;
+    width: 240px;
     height: 100vh;
     max-height: none;
     background: var(--bg);
     z-index: 100;
-    padding: 80px 24px 32px;
+    padding: 72px 20px 32px;
     transform: translateX(100%);
+    box-sizing: border-box;
     transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
     overflow-y: auto;
     border-left: 1px solid var(--border);
