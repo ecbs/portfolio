@@ -17,4 +17,13 @@
   });
 
   updateIcon();
+
+  var nav = document.querySelector('.site-nav');
+  if (nav) {
+    function onScroll() {
+      nav.classList.toggle('scrolled', window.scrollY > 0);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
 })();

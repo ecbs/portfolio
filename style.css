@@ -49,13 +49,21 @@ a {
   z-index: 200;
   padding: 16px 0;
   background: var(--bg);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.site-nav.scrolled {
+  border-color: var(--border);
 }
 
 .nav-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
 .nav-logo {
