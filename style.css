@@ -663,22 +663,22 @@ a {
   .case-sidebar {
     position: fixed;
     top: 0;
-    left: 0;
+    right: 0;
     width: 260px;
     height: 100vh;
     max-height: none;
     background: var(--bg);
     z-index: 100;
     padding: 80px 24px 32px;
-    transform: translateX(-100%);
+    transform: translateX(100%);
     transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
     overflow-y: auto;
-    border-right: 1px solid var(--border);
+    border-left: 1px solid var(--border);
   }
 
   .case-sidebar.open {
     transform: translateX(0);
-    box-shadow: 4px 0 40px rgba(0, 0, 0, 0.15);
+    box-shadow: -4px 0 40px rgba(0, 0, 0, 0.15);
   }
 
   .sidebar-burger {
